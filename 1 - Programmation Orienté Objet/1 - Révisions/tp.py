@@ -2,7 +2,9 @@ def est_pair(bits):
     """ [int] -> bool
     len(bits) > 0
     Détermine si le nombre dont l'écriture en base 2 est donnée par le tableau bits est pair.  """
-    pass
+    if bits[len(bits)] == 1:
+        return False
+    return True
 
 def est_plus_grand_kbits(bits):
     """ [int] -> bool
