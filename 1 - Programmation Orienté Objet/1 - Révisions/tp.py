@@ -124,6 +124,32 @@ def occurrences(tab):
 # occurrences a une complexité quadratique (on la note
 # O(n^2)
 
+def occurrences(tab):
+    """ [int] -> { int:[int] }
+    Associe à chaque valeur de tab la liste des indices des occurrences de cette valeur """
+    d = {}
+    for i in range(len(tab)):
+        elem = tab[i]
+        if not (elem in d):
+            d[elem] = [i]
+        else:
+            d[elem].append(i)
+    return d
+            
+# cette fonction est de complexité linéaire
+# Lorsque d est un dictionnaire
+# l'instruction elem in d teste si
+# elem est une clé du dictionnaire
+# EN TEMPS CONSTANT = une opération effectuée
+print(occurrences([7,5,4,4,7]))    
+
+
+
+
+
+
+
+
 
 def maximum(tab):
     """ [int], int -> int, int
