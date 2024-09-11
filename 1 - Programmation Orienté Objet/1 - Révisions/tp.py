@@ -141,8 +141,6 @@ def occurrences(tab):
 # l'instruction elem in d teste si
 # elem est une clé du dictionnaire
 # EN TEMPS CONSTANT = une opération effectuée
-print(occurrences([7,5,4,4,7]))    
-
 
 def maximum(tab):
     """ [int], int -> int, int
