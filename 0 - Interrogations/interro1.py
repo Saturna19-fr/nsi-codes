@@ -10,7 +10,16 @@ def minimum(tab):
             indices.append(i)
     return mini, indices
         
+# il faut remplacer 
+#    for i in range(1, len(tab)):
+# par
+#    for i in range(len(tab) - 1, 0, -1):
+# Ainsi on parcourt les indices du tableau
+# par ordre décroissant :
+# len(tab) - 1, len(tab) - 2, ..., 3, 2, 1, 0
+
 def gelees(temp):
+    """ [int] -> int """
     duree_gel = 0
     plus_grande_duree = 0
     for t in temp:
