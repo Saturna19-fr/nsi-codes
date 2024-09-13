@@ -141,15 +141,6 @@ def occurrences(tab):
 # l'instruction elem in d teste si
 # elem est une clé du dictionnaire
 # EN TEMPS CONSTANT = une opération effectuée
-print(occurrences([7,5,4,4,7]))    
-
-
-
-
-
-
-
-
 
 def maximum(tab):
     """ [int], int -> int, int
@@ -163,8 +154,23 @@ def maximum(tab):
             indice_maxi = i
     return maxi, indice_maxi
 
+def maximum2(tab):
+    """ [int], int -> int, int
+    len(tab) > 0
+    Détermine le maximum des éléments de tab, ainsi que le dernier indice pour lequel ce maximum est atteint.  """
+    maxi = tab[0]
+    indice_maxi = 0
+    for i in range(1, len(tab)):
+        if maxi <= tab[i]:
+            maxi = tab[i]
+            indice_maxi = i
+    return maxi, indice_maxi
+
 def est_trie_croissant(tab):
     """ [int] -> bool
     Détermine si le tab est trié par ordre croissant """
-    pass
+    for i in range(len(tab) - 1):
+        if tab[i] > tab[i + 1]:
+            return False
+    return True
 
