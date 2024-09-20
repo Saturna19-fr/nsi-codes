@@ -1,0 +1,20 @@
+ |---------------------+-------------------+------------+----------------|
+ | Équipe              | Nom               | Prénom     | Pseudo         |
+ |---------------------+-------------------+------------+----------------|
+ | KarmineCode         | MOREZ             | Thibault   | Saturna19      |
+ | KarmineCode         | PERVILLE--DOUHANE | Yanis      | Yanis_P        |
+ | KarmineCode         |                   | Maximilien | Max C          |
+ | KarmineCode         |                   | Neev       | neevc          |
+ | KarmineCode         |                   | Adam       | DamDamHappy    |
+ | Konohateam          |                   | David      | david.traore   |
+ | Comploteurs \$uisse |                   | Naël       | Naël           |
+ | Comploteurs \$uisse |                   | Mathis     | Mathhhhhhhhhis |
+ | Comploteurs \$uisse |                   | Alexandre  | alexandre      |
+ | Konohateam          |                   | Théo       | Obanai_sant7   |
+ | Konohateam          |                   | Neyl       | Nexus          |
+ | JOJO                |                   | Augustin   | slaw           |
+ | JOJO                |                   | Issa       | asiatshiny     |
+ | JOJO                |                   | Kayis      | KA92VIS        |
+ |---------------------+-------------------+------------+----------------|
+
+Au 20/09/24
