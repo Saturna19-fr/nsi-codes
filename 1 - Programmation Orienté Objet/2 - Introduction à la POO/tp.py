@@ -93,10 +93,17 @@ class Livre:
         return self.prix()*(1 - reduc/100)
     
     def recevoir(self, n):
-        # à finir pour lundi
+        self.disponible += n
         
+    # TP2 : paragraphe 2.3.4
     def vente(self, reduc):
-        # à finir pour lundi
+        if self.disponible > 0:
+            prix = self.prix_reduit(reduc)
+            self.disponible -= 1
+            return round(prix, 2)
+        else:
+            return 0
+        
 
 # Initialisation des variables
 livre1 = Livre("La peste", "Camus Albert", 59)
@@ -104,9 +111,14 @@ livre2 = Livre("Fondation", "Asimoov Isaac", 265)
 livre3 = Livre("Liens de sang", "Octavia Butler", 467)
 livre4 = Livre("Les misérables", "Victor Hugo", 2135)
 
+# TP2 : paragraphe 3. Gestion d'une librairie.
 
-
-
+def recherche(collection, titre):
+    """ [Livre], str -> int
+    Renvoie le nombre de livres disponibles
+    dans la collection ayant le titre recherché """
+    
+    
 
 
 
