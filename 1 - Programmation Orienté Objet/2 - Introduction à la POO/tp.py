@@ -110,6 +110,7 @@ livre1 = Livre("La peste", "Camus Albert", 59)
 livre2 = Livre("Fondation", "Asimoov Isaac", 265)
 livre3 = Livre("Liens de sang", "Octavia Butler", 467)
 livre4 = Livre("Les misérables", "Victor Hugo", 2135)
+livre5 = Livre("Harry Potter à l'école des sorciers", "J. K. Rowling", 132)
 
 # TP2 : paragraphe 3. Gestion d'une librairie.
 
@@ -117,15 +118,21 @@ def recherche(collection, titre):
     """ [Livre], str -> int
     Renvoie le nombre de livres disponibles
     dans la collection ayant le titre recherché """
-    
-    
+    for livre in collection:
+        if livre.titre == titre:
+            return livre.disponible
 
+collection = [livre1, livre2, livre3, livre4]
 
+class Librairie:
+    def __init__(self, c):
+        """ Librairie, [Livre] -> None """
+        # c est une liste de livres
+        self.collection = c
 
-
-
-
-
+libvide = Librairie([])
+# livre1.disponible = 8
+livre1.recevoir(7)
 
 
 
