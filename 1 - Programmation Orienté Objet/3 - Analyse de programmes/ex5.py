@@ -15,6 +15,8 @@ class Point:
 
     def __str__(self):
         return f"Point({self.x}, {self.y})"
+    
+
 
 a = Point(2, 4)
 # attributs : x, et y

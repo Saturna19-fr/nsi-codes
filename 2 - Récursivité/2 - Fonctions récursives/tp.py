@@ -35,13 +35,26 @@ def arithmétique(n, a, q):
 def factorielle(n):
     """ int -> int
     Renvoie le nombre n! """
-    pass
+    if n == 0:
+        return 1
+    else:
+        r = factorielle(n-1)
+        return r * n
     
 def fibonacci(n):
     """ int -> int
     n >= 1
     Détermine le n-ième nombre de Fibonacci avec F_0 = 0, F_1 = 1.  """
-    pass
+    if n == 1:
+        return 1
+    elif n == 0:
+        return 0
+    else:
+        r1 = fibonacci(n-1)
+        r2 = fibonacci(n-2)
+        return r1 + r2
+    
+print(fibonacci(4))
 
 def encadre(k):
     """ int -> int
