@@ -1,12 +1,47 @@
 from Liste import creer_vide, est_vide, tete, queue, ajoute, affiche
 
-# l1 = creer_vide()
-# ...
+# question 2 : l'instruction ajoute(l, 2)
+# ne modifie pas la liste d'après l'affichage
+
+l1 = creer_vide()
+
+l2 = creer_vide()
+l2 = ajoute(l2, -1)
+
+# On ajoute les élémets les uns après les autres
+# en partant de la fin
+l3 = creer_vide()
+l3 = ajoute(l3, -1)
+# on aurait pu directement écrire
+# l3 = ajoute(l2, 9)
+l3 = ajoute(l3, 9)
+l3 = ajoute(l3, 6)
+l3 = ajoute(l3, 5)
+
+l4 = creer_vide()
+l4 = ajoute(l4, 9)
+l4 = ajoute(l4, -5)
+l4 = ajoute(l4, 9)
+l4 = ajoute(l4, 4)
+l4 = ajoute(l4, 9)
+l4 = ajoute(l4, -5)
 
 def est_singleton(l):
     """ Liste -> bool
     Détermine si la liste est constituée d'un seul élément. """
-    pass
+    # une liste est constituée d'un seul élément
+    # si :
+    # la liste n'est pas vide
+    # la queue est vide
+    if est_vide(l):
+        return False
+    elif est_vide(queue(l)):
+        return True
+    else:
+        return False
+    
+    # de manière équivalente :
+    # return not est_vide(l) and est_vide(queue(l)) 
 
 def singleton(n):
     """ int -> Liste
@@ -17,6 +52,8 @@ def nombres(n):
     """ int -> Liste
     Renvoie la liste (n, n-1, n-2, ..., 3, 2, 1) """
     pass
+
+# compléter jusqu'ici pour lundi
 
 def nombresII_aux(n, i):
     """ int, int -> Liste
