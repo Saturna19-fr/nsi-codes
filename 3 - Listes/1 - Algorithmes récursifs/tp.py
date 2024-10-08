@@ -46,14 +46,18 @@ def est_singleton(l):
 def singleton(n):
     """ int -> Liste
     Renvoie la liste (n) """
-    pass
+    l = creer_vide()
+    l = ajoute(l, n)
+    return l
 
 def nombres(n):
     """ int -> Liste
     Renvoie la liste (n, n-1, n-2, ..., 3, 2, 1) """
-    pass
-
-# compléter jusqu'ici pour lundi
+    if n == 1:
+        return singleton(n)
+    else:
+        l = nombres(n - 1)
+        return ajoute(l, n)
 
 def nombresII_aux(n, i):
     """ int, int -> Liste
@@ -68,12 +72,24 @@ def nombresII(n):
 def longueur(l):
     """ Liste -> int
     Renvoie la longueur de la liste l """
-    pass
+    if est_vide(l):
+        return 0
+    else:
+        r = longueur(queue(l))
+        return r + 1 
 
 def somme(l):
     """ Liste -> int
     Calcule la somme des éléments de la liste l """
-    pass
+    # if longueur(l)==0:
+    #    return 0
+    # if longueur(l)==1:
+    if est_singleton(l):    
+        return tete(l)
+    else:
+        r = somme(queue(l))
+        return r + tete(l)
+        # return somme(queue(l))+tete(l)
 
 def appartient(l, e):
     """ Liste, int -> bool
