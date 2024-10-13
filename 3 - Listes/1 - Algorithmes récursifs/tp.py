@@ -59,15 +59,21 @@ def nombres(n):
         l = nombres(n - 1)
         return ajoute(l, n)
 
+# 2.4 : création de listes III
+
 def nombresII_aux(n, i):
     """ int, int -> Liste
     Renvoie la liste de nombres (i, i + 1, ..., n-1, n) """
-    pass
+    if n == i:
+        return singleton(n)
+    else:
+        r = nombresII_aux(n, i + 1)
+        return ajoute(r , i)
 
 def nombresII(n):
-    """ int, int -> Liste
+    """ int -> Liste
     Renvoie la liste de nombres (1, 2, ..., n-1, n) """
-    pass
+    return nombresII_aux(n, 1)
 
 def longueur(l):
     """ Liste -> int
@@ -94,28 +100,72 @@ def somme(l):
 def appartient(l, e):
     """ Liste, int -> bool
     Détermine si l'élément e fait partie de la liste l """
-    pass
+    if est_vide(l):
+        return False
+#.    elif appartient(queue(l), e) or tete(l) == e:
+    elif tete(l) == e:
+        return True
+    else:
+        r = appartient(queue(l), e)
+        return r
+#        if r == True:
+#            return True
+#        else:
+#            return False
+     
+# Rappel. Si c est un entier : 
+# if c == 3:
+#     return True
+# else:
+#     return False
+# On peut écrire directement :
+# return c == 3
 
 def nombre_occurrences(l, e):
     """ Liste, int -> int
     Compte le nombre d'occurrences de e dans l """
-    pass
+    if est_vide(l):
+        return 0
+    else:
+        r = nombre_occurrences(queue(l), e)
+        if tete(l) == e:
+            return 1 + r
+        else:
+            return r
 
 def maximum2(a, b):
     """ int, int -> int
     Calcule l'élément maximum parmis a et b
     """
-    pass
+    return a if a > b else b
 
 def maximum(l):
     """ Liste -> int
     Renvoie le plus grand élément de l """
-    pass
+    if est_singleton(l):
+        return tete(l)
+    else:
+        return maximum2(tete(l), maximum(queue(l)))
 
 def supprime(l, e):
     """ Liste, int -> Liste
     Supprime la première occurrence de e la liste l """
-    pass
+    if est_vide(l):
+        return l
+    elif tete(l) == e:
+        return queue(l)
+    else:
+        return ajoute(supprime(queue(l)), tete(l))
+        
+def supprime(l, e):
+    """ Liste, int -> Liste
+    Supprime la première occurrence de e la liste l """
+    if est_vide(l):
+        return l
+    elif tete(l) == e:
+        return supprime(queue(l), e)
+    else:
+        return ajoute(supprime(queue(l), e), tete(l))
 
 def concatene(l1, l2):
     """ Liste, Liste -> Liste
