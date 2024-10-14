@@ -1,22 +1,30 @@
 from Liste import creer_vide, est_vide, tete, queue, ajoute, affiche
 
+# question 2 : l'instruction ajoute(l, 2)
+# ne modifie pas la liste d'après l'affichage
+
 l1 = creer_vide()
+
 l2 = creer_vide()
 l2 = ajoute(l2, -1)
 
+# On ajoute les élémets les uns après les autres
+# en partant de la fin
 l3 = creer_vide()
 l3 = ajoute(l3, -1)
-# l3 = ajoute(l3, 9)
+# on aurait pu directement écrire
+# l3 = ajoute(l2, 9)
+l3 = ajoute(l3, 9)
 l3 = ajoute(l3, 6)
 l3 = ajoute(l3, 5)
 
-l3 = ajoute(l3, 6)
-
-l3 = ajoute(l3, 6)
-l3 = ajoute(l3, 6)
-l3 = ajoute(l3, 8)
-# l1 = creer_vide()
-# ...
+l4 = creer_vide()
+l4 = ajoute(l4, 9)
+l4 = ajoute(l4, -5)
+l4 = ajoute(l4, 9)
+l4 = ajoute(l4, 4)
+l4 = ajoute(l4, 9)
+l4 = ajoute(l4, -5)
 
 def est_singleton(l):
     """ Liste -> bool
@@ -47,10 +55,10 @@ def nombresII_aux(n, i):
         return ajoute(nombresII_aux(n, i + 1), i)
 
 def nombresII(n):
-    """ int, int -> Liste
+    """ int -> Liste
     Renvoie la liste de nombres (1, 2, ..., n-1, n) """
     return nombresII_aux(n, 1)
-    
+
 def longueur(l):
     """ Liste -> int
     Renvoie la longueur de la liste l """
@@ -108,18 +116,21 @@ def supprime(l, e):
     """ Liste, int -> Liste
     Supprime la première occurrence de e la liste l """
     if est_vide(l):
-        creer_vide()
+        return l
     elif tete(l) == e:
         return queue(l)
     else:
-        return supprime(queue(l), e)
-
-def supprime_tout(l, e):
-    if nombre_occurrences(l, e) == 0:
+        return ajoute(supprime(queue(l)), tete(l))
+        
+def supprime(l, e):
+    """ Liste, int -> Liste
+    Supprime la première occurrence de e la liste l """
+    if est_vide(l):
         return l
+    elif tete(l) == e:
+        return supprime(queue(l), e)
     else:
-        ls = supprime(l, e)
-        return supprime_tout(queue(ls), e)
+        return ajoute(supprime(queue(l), e), tete(l))
 
 def concatene(l1, l2):
     """ Liste, Liste -> Liste
