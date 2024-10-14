@@ -32,20 +32,42 @@ print(m.suivant)
 print(m.suivant.valeur)
 
 # À compléter
-# m1 = ...
-# m2 = ...
-# m3 = ...
-# m4 = ...
+m1= None
+
+m2=Maillon(-1,None)
+
+m3=Maillon(-1,None)
+m3=Maillon(9,m3)
+m3=Maillon(6,m3)
+m3=Maillon(5,m3)
+
+m4=Maillon(13,None)
+m4=Maillon(9,m4)
+m4=Maillon(-5,m4)
+
+# Ou en une seule ligne à chaque fois :
+# m1 = None
+# m2 = Maillon(-1,None)
+# m3 = Maillon(5,Maillon(6,Maillon(9,Maillon(-1,None))))
+# m4 = Maillon(-5,Maillon(9,Maillon(13,None)))
+
+# Question 1 : on est allé trop loin dans la liste
+# chaînée : None n'a pas d'attribut valeur
+
 
 def creer_vide():
     """ () -> Maillon
     Renvoie un maillon vide """
-    pass
+    return None
 
 def est_vide(m):
     """ Maillon -> bool
     Renvoie True si et seulement si le maillon m est le maillon vide """
-    pass
+    # if m == None:
+    #     return True
+    # else:
+    #     return False
+    return m == None
 
 def tete(m):
     """ Maillon -> int
@@ -64,6 +86,8 @@ def ajoute(m, e):
     Renvoie le maillon dont l'attribut valeur est e et l'attribut suivant est m """
     pass
 
+# à finir pour mardi 15
+
 def affiche_rec(m):
     """ Maillon -> None
     Affiche les valeurs de la chaîne dont le premier maillon est m. """
@@ -73,7 +97,7 @@ def affiche_rec(m):
         print(tete(m), end = " - ")
         affiche_rec(queue(m))
 
-affiche_rec(m3)
+# affiche_rec(m3)
 
 def affiche_i(m):
     """ Maillon -> None
@@ -84,7 +108,7 @@ def affiche_i(m):
         maillon_courant = queue(maillon_courant)
     print("x")
 
-affiche_i(m3)
+# affiche_i(m3)
 affiche = affiche_i
 
 def longueur(m):
