@@ -157,28 +157,57 @@ def supprime(l, e):
     else:
         return ajoute(supprime(queue(l)), tete(l))
         
-def supprime(l, e):
+def supprime_tout(l, e):
     """ Liste, int -> Liste
     Supprime la première occurrence de e la liste l """
     if est_vide(l):
         return l
     elif tete(l) == e:
-        return supprime(queue(l), e)
+        return supprime_tout(queue(l), e)
     else:
-        return ajoute(supprime(queue(l), e), tete(l))
+        return ajoute(supprime_tout(queue(l), e), tete(l))
 
 def concatene(l1, l2):
     """ Liste, Liste -> Liste
     Concatène les deux listes """
-    pass
+    if est_vide(l1):
+        return l2
+    else:
+        r = concatene(queue(l1), l2)
+        return ajoute(r, tete(l1))
+
+def est_2ton(l):
+    """ Liste -> bool """
+    if est_vide(l) or est_singleton(l):
+        return False
+    return est_singleton(queue(l))
+# fonction en temps constant : quelque soit la taille
+# de la liste, on réalise un nombre constant d'opérations
+
+# ou bien avec la fonction longueur(l) :
+# def est_2ton(l):
+# 	return longueur(l) == 2
+# dans ce cas est_2ton est de complexité linéaire
+# (nombre d'opération proportionnel à la taille de la liste)
 
 def divise(l):
     """ Liste -> Liste, Liste
     Divise la liste l en deux listes """
-    pass
+    if est_vide(l):
+        return creer_vide(), creer_vide()
+    elif est_singleton(l):
+        return singleton(tete(l)), creer_vide()
+    elif est_2ton(l):
+        return singleton(tete(l)), singleton(tete(queue(l)))
+    else:
+        x1 = tete(l)
+        x2 = tete(queue(l))
+        l1, l2 = divise(queue(queue(l)))
+        return ajoute(l1, x1), ajoute(l2, x2)
 
 def liste_sous_ensembles(E):
     """ list -> list
     Renvoie la liste de tous les sous-ensembles de E """
     pass
+
 
