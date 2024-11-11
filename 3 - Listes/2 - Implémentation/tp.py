@@ -73,20 +73,22 @@ def tete(m):
     """ Maillon -> int
     m est non vide
     Renvoie l'attribut valeur du maillon m """
-    pass
+    return m.valeur
 
 def queue(m):
     """ Maillon -> Maillon
     m est non vide
     Renvoie le maillon suivant dans la chaine de maillon de tête m. """
-    pass
+    return m.suivant
+    # return m.suivant(tete(m))
+    # return tete(m.suivant)
 
 def ajoute(m, e):
     """ Maillon, int -> Maillon
     Renvoie le maillon dont l'attribut valeur est e et l'attribut suivant est m """
-    pass
+    return Maillon(e, m)
 
-# à finir pour mardi 15
+# le mot clé is vérifie l'identité en mémoire de deux objets
 
 def affiche_rec(m):
     """ Maillon -> None
@@ -115,22 +117,80 @@ def longueur(m):
     """ Maillon -> int
     Compte le nombre de maillons présents dans la chaîne dont le premier maillon est m """
     # version itérative
-    pass
+    maillon_courant = m
+    reponse = 0
+    while maillon_courant is not None:
+        reponse =  reponse + 1
+        maillon_courant = maillon_courant.suivant
+    return reponse
 
 def element(m, i):
     """ Maillon, int -> int
     m est non vide, 0 <= i < longueur(m)
     Renvoie l'élément d'indice i de la chaîne de maillons dont le premier est m """
-    pass
+    maillon_courant = m
+    cpt = 0
+    while cpt != i:
+        cpt = cpt + 1
+        # attention à ne pas aller "trop loin" dans
+        # la chaine : maillon_courant peut alors
+        # valoir None
+        maillon_courant = maillon_courant.suivant
+    return maillon_courant.valeur
 
 def remplace(m, i, e):
     """ Maillon, int, int -> None
     m est non vide, 0 <= i < longueur(m)
     Remplace par e la valeur du i-ème maillon de la chaine commençant par m """
-    pass
+    maillon_courant = m
+    cpt = 0
+    while cpt != i:
+        cpt = cpt + 1
+        maillon_courant = maillon_courant.suivant
+    maillon_courant.valeur = e # maillon_courant est muté
+    # la fonction renvoie None
+    # return None
 
-def ajoute_position(m, e, i):
+# Question 4
+# faire element récursif
+
+def element_r(m, i):
+    """ Maillon, int -> int 
+    element : version récursive """
+    if i == 0:
+        return m.valeur
+    else:
+        # l'élement d'indice i dans la chaine qui commence
+        # à m est le même que l'élément d'indice i - 1
+        # dans la chaîne qui commence à m.suivant
+        return element_r(m.suivant, i - 1)
+   
+# Question 5
+# faire remplace_rnm
+def remplace_rnm(m, i, e):
+    """ Maillon, int, int -> Maillon
+    remplace : récursif et non mutable """
+    if i == 0:
+        return Maillon(e, m.suivant)
+    else:
+        inter = remplace_rnm(queue(m), i - 1, e)
+        return Maillon(tete(m), inter)
+    
+# + version itérative de remplace qui ne mute aucun maillon
+
+def ajoute_position(m, i, e):
     """ Maillon, int, int -> None
     Ajoute l'élément e en i-ième position de la chaine dont le premier maillon est m """
-    pass
+    if i == 0:
+        return Maillon(e, m)
+    else:
+        inter = ajoute_position(queue(m), i - 1, e)
+        return Maillon(tete(m), inter)
+    
+# version récursive
+# ne mute pas la donnée
+    
+    
+    
+    
 
